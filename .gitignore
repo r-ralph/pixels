@@ -54,5 +54,7 @@ eclipse/logs
 eclipse/crash-reports
 eclipse/.metadata
 eclipse/usernamecache.json
+eclipse/config/images
+eclipse/config/splash.properties
 
 .gradle/

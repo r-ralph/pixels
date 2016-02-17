@@ -1,6 +1,5 @@
 package ms.ralph.minecraft.pixels
 
-import cpw.mods.fml.client.registry.RenderingRegistry
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
 import cpw.mods.fml.common.event.FMLInitializationEvent
@@ -9,6 +8,9 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent
 import cpw.mods.fml.common.registry.GameRegistry
 import ms.ralph.minecraft.pixels.block.BlockPixel
 import ms.ralph.minecraft.pixels.block.BlockPixelFrame
+import ms.ralph.minecraft.pixels.command.CommandEnd
+import ms.ralph.minecraft.pixels.command.CommandFrame
+import ms.ralph.minecraft.pixels.command.CommandStart
 import ms.ralph.minecraft.pixels.tileentity.TileEntityPixel
 import java.io.File
 
@@ -17,6 +19,7 @@ class Pixels {
     val injector: ImageInjector = ImageInjector()
     var frame: FrameInfo? = null
     var imageDir: File? = null
+    var currentTask: PixelTask? = null
 
     @EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
@@ -36,6 +39,8 @@ class Pixels {
     @EventHandler
     fun serverLoad(event: FMLServerStartingEvent) {
         event.registerServerCommand(CommandFrame())
+        event.registerServerCommand(CommandStart())
+        event.registerServerCommand(CommandEnd())
     }
 
     companion object {

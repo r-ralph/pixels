@@ -35,7 +35,7 @@ class ImageInjector {
                     }
                     val tileEntity: TileEntityPixel = world.getTileEntity(x, y, z) as TileEntityPixel
                     tileEntity.color = scaled.getRGB(x - frame.x, h)
-                    world.markTileEntityChunkModified(x, y, z, tileEntity)
+                    world.markBlockForUpdate(x, y, z)
                 }
             }
         } else {
@@ -47,8 +47,8 @@ class ImageInjector {
                         world.setBlock(x, y, z, Pixels.blockPixel)
                     }
                     val tileEntity: TileEntityPixel = world.getTileEntity(x, y, z) as TileEntityPixel
-                    tileEntity.color = scaled.getRGB(z - frame.z, y - frame.y - 1)
-                    world.markTileEntityChunkModified(x, y, z, tileEntity)
+                    tileEntity.color = scaled.getRGB(z - frame.z, h)
+                    world.markBlockForUpdate(x, y, z)
                 }
             }
         }

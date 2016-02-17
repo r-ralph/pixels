@@ -1,5 +1,6 @@
-package ms.ralph.minecraft.pixels
+package ms.ralph.minecraft.pixels.command
 
+import ms.ralph.minecraft.pixels.Pixels
 import net.minecraft.command.ICommand
 import net.minecraft.command.ICommandSender
 import net.minecraft.util.ChatComponentText
